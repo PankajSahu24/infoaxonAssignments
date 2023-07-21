@@ -1,0 +1,117 @@
+Assignment:-
+
+Write a method to convert Fahrenheit To Celsius.
+
+Write a method to swap two numbers without using third variables.
+
+Write a method to calculate simple interest as per the amount, tenure and interest rate.
+
+Write a method to generate an employee code of eight digits where frist two digits represent month of joining and
+next two digits represent year of the joining and other 4 digits will be created from the addition of data of birth.
+
+ex:- joining month 03
+
+      Joining year 2023
+
+      Date of birth  04-06-1998 (1998+06+04=2008)
+
+     Employee Id :- 03232008
+
+Note:- Follow the best writing practice that discussed in the last session has context menu .
+
+
+// Doubt = double and float wala 
+
+**************************************************************************************************************************************************
+
+1) double fahrenheitToCelsius(float fahrenheit){
+
+double celsius = 0 ;
+celsius = (fahrenheit-32)*5/9;
+return celsius; 
+
+}
+
+-------------------------------------------------------------------------
+
+2) 
+
+import java.util.ArrayList;
+import java.util.List;
+class SwapNumber {
+    
+    public static void main(String[] args) {
+       int num1 = 10;
+       int num2 = 20;
+      
+      ArrayList<Integer> swappedNumbers = swap(num1,num2);
+      
+        num1 = swappedNumbers.get(0).intValue();
+        num2 = swappedNumbers.get(1).intValue();
+        
+        System.out.print(num1 + " " + num2);
+        
+    }
+    
+    static ArrayList swap(int num1,int num2){
+        ArrayList<Integer> resultList = new ArrayList<>();
+       
+        num1 = num1+num2;
+        num2 = num1 - num2;
+        num1 = num1 - num2;
+        resultList.add(num1);
+        resultList.add(num2);
+        
+        
+        return resultList;
+    }
+}
+
+------------------------------------------------------------------------
+3)
+
+
+    static double simpleInterestCalculator(int tenure,int principal,double rate){
+        double SI = 0;
+        SI = (tenure * principal * rate)/100;
+        
+        return SI;
+    }
+
+----------------------------------------------------------------------------
+4)
+
+
+class EmployeeCode {
+    
+    public static void main(String[] args) {
+      String joiningDate = "20-06-2023";
+      String dob = "27-05-1996";
+      
+      String employeeCode = "";
+      employeeCode = generateEmployeeCode(joiningDate,dob);
+      System.out.print(employeeCode);
+      
+    }
+    
+    static String generateEmployeeCode(String joiningDate,String dob){
+        String employeeCode = "";
+        employeeCode = ""+joiningDate.substring(3,5)+""+joiningDate.substring(8);
+        
+        int sumOfDigitsOfDob = 0;
+        
+        sumOfDigitsOfDob = sumOfDigitsOfDob + Integer.parseInt(dob.substring(6)) + Integer.parseInt(dob.substring(0,2)) + Integer.parseInt(dob.substring(3,5)) ;
+        
+        employeeCode = employeeCode + sumOfDigitsOfDob;
+        
+        return employeeCode;
+    }
+}
+
+====================================================================================================================================================================
+
+
+
+
+
+

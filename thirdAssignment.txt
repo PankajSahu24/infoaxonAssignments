@@ -1,0 +1,255 @@
+Create a class to sell the policy with the below parameters. Also write the one parameterise constructor to assign the values in the below fields. 
+
+Write method to get the policy details as per policy id passed.
+
+Write a method to check the status of the policy is active/expired as per policy id passed.
+
+Write a method to check the payment status of the policy per policy id passed.
+
+Write setters and getters for the below fields.
+
+Write a method to check the policy payment when will be due.
+
+Policy Id
+Policy number
+Policy Lob
+Policy create date.
+Policy due date
+Policy payment date
+Policy status
+Policy premium amount
+Policy maturity amount
+policy sumassured
+policy tenure
+policy payment frequency
+policy payment status.
+
+
+--------------------------------------------------------------------
+package com.infoaxon;
+
+
+import java.util.Map;
+
+public class Policy {
+	int policyId;
+	int policyNumber;
+	String policyName;
+	String policyCreatedOn;
+	String dueDate;
+	String paymentDate;
+	boolean policyStatus;
+	int premiumAmount;
+	double maturityAmount;
+	double sumAssured;
+	int tenure;
+	int paymentFrequency;
+	boolean paymentStatus;
+	
+	
+	public Policy() {};
+	
+	
+	public Policy(int policyId, int policyNumber, String policyName, String policyCreatedOn, String dueDate,
+			String paymentDate, boolean policyStatus, int premiumAmount, double maturityAmount, double sumAssured,
+			int tenure, int paymentFrequency, boolean paymentStatus) {
+		super();
+		this.policyId = policyId;
+		this.policyNumber = policyNumber;
+		this.policyName = policyName;
+		this.policyCreatedOn = policyCreatedOn;
+		this.dueDate = dueDate;
+		this.paymentDate = paymentDate;
+		this.policyStatus = policyStatus;
+		this.premiumAmount = premiumAmount;
+		this.maturityAmount = maturityAmount;
+		this.sumAssured = sumAssured;
+		this.tenure = tenure;
+		this.paymentFrequency = paymentFrequency;
+		this.paymentStatus = paymentStatus;
+	}
+	
+	
+	
+	public int getPolicyId() {
+		return policyId;
+	}
+	public void setPolicyId(int policyId) {
+		this.policyId = policyId;
+	}
+	public int getPolicyNumber() {
+		return policyNumber;
+	}
+	public void setPolicyNumber(int policyNumber) {
+		this.policyNumber = policyNumber;
+	}
+	public String getPolicyName() {
+		return policyName;
+	}
+	public void setPolicyName(String policyName) {
+		this.policyName = policyName;
+	}
+	public String getPolicyCreatedOn() {
+		return policyCreatedOn;
+	}
+	public void setPolicyCreatedOn(String policyCreatedOn) {
+		this.policyCreatedOn = policyCreatedOn;
+	}
+	public String getDueDate() {
+		return dueDate;
+	}
+	public void setDueDate(String dueDate) {
+		this.dueDate = dueDate;
+	}
+	public String getPaymentDate() {
+		return paymentDate;
+	}
+	public void setPaymentDate(String paymentDate) {
+		this.paymentDate = paymentDate;
+	}
+	public boolean isPolicyStatus() {
+		return policyStatus;
+	}
+	public void setPolicyStatus(boolean policyStatus) {
+		this.policyStatus = policyStatus;
+	}
+	public int getPremiumAmount() {
+		return premiumAmount;
+	}
+	public void setPremiumAmount(int premiumAmount) {
+		this.premiumAmount = premiumAmount;
+	}
+	public double getMaturityAmount() {
+		return maturityAmount;
+	}
+	public void setMaturityAmount(double maturityAmount) {
+		this.maturityAmount = maturityAmount;
+	}
+	public double getSumAssured() {
+		return sumAssured;
+	}
+	public void setSumAssured(double sumAssured) {
+		this.sumAssured = sumAssured;
+	}
+	public int getTenure() {
+		return tenure;
+	}
+	public void setTenure(int tenure) {
+		this.tenure = tenure;
+	}
+	public int getPaymentFrequency() {
+		return paymentFrequency;
+	}
+	public void setPaymentFrequency(int paymentFrequency) {
+		this.paymentFrequency = paymentFrequency;
+	}
+	public boolean isPaymentStatus() {
+		return paymentStatus;
+	}
+	public void setPaymentStatus(boolean paymentStatus) {
+		this.paymentStatus = paymentStatus;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Policy [policyId=" + policyId + ", policyNumber=" + policyNumber + ", policyName=" + policyName
+				+ ", policyCreatedOn=" + policyCreatedOn + ", dueDate=" + dueDate + ", paymentDate=" + paymentDate
+				+ ", policyStatus=" + policyStatus + ", premiumAmount=" + premiumAmount + ", maturityAmount="
+				+ maturityAmount + ", sumAssured=" + sumAssured + ", tenure=" + tenure + ", paymentFrequency="
+				+ paymentFrequency + ", paymentStatus=" + paymentStatus + "]";
+	}
+	
+	
+	
+
+
+	public static Policy getAllInformationOfPolicy(Map <Integer,Policy> mapOfPolicy,int id) {
+		
+		Policy returnPolicy = mapOfPolicy.get(id);
+		
+		return returnPolicy;
+		
+	}
+	
+	public static boolean getPolicyStatus(Map <Integer,Policy> mapOfPolicy,int id) {
+		
+		Policy policy = Policy.getAllInformationOfPolicy(mapOfPolicy, id);
+		boolean policyStatus = policy.isPolicyStatus();
+		return policyStatus;
+		
+	}
+	
+	public static boolean getPaymentStatus(Map <Integer,Policy> mapOfPolicy,int id) {
+		Policy policy = Policy.getAllInformationOfPolicy(mapOfPolicy, id);
+		boolean payment_status = policy.isPaymentStatus();
+		return payment_status;        
+	}
+	
+	public static String getDueDate(Map <Integer,Policy> mapOfPolicy,int id) {
+		Policy policy = Policy.getAllInformationOfPolicy(mapOfPolicy, id);
+		return policy.getDueDate();
+
+	}
+	 
+	
+}
+
+ **************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------
+
+What is Liferay?
+=> Liferay is an open source enterprise portal and Java-based web application platform provides a toolset for the development of customizable portals and websites.
+
+Why we use Liferay?
+=> Pre-implemented basic funcionalities required in an App .
+   Easy use and learn .
+   Lots of features and stable .
+   Provides excellent authentication and authorization .
+   Customizable functionalities as per user requirements .
+   
+
+What is the use of portal-ext.properties?
+=> to change the default functionalities and properties provided by Liferay in portal.properties and customize things as we want .
+
+What is the use of data folder in Liferay home?
+=> Stores all the data of application like photos , videos , etc that are used in the application . All the uploading and downloading of any type of data is done here .
+
+
+What is the use of deploy folder in Liferay home?
+=> When we place the activation key in the deploy folder , liferay reads it automatically . The activation key is 
+   basically the paid license for liferay DXP (Paid Version) .
+
+What is the default data base of Liferay?
+=> Hypersonic 
+
+
+How we connect different data bases with Liferay?
+=> By including the database cofigurations in the portal-ext.properties file .
+
+jdbc.default.driverClassName=com.mysql.jdbc.Driver
+    jdbc.default.url=jdbc:mysql://localhost:3306/batchjune2023?useUnicode=true&characterEncoding=UTF-8&useFastDateParsing=false
+    jdbc.default.username=root
+    jdbc.default.password=root
+
+
+
+What is different versioning technique for a project?
+=> community edition and enterprise edition

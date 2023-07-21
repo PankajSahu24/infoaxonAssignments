@@ -1,0 +1,53 @@
+What is custom fields? 
+=>In Liferay DXP (Digital Experience Platform), custom fields are a feature that allows you to extend the data model of entities like users, organizations, web content articles, documents, and more. Custom fields enable you to add additional attributes or properties to these entities beyond the default set of fields provided by Liferay.
+
+----------------------------------------------------------------------------------------------------
+
+How many custom fields in Liferay?
+=> text area , input field , dropdown , checkbox , radio , geolocation , date , toggle 
+----------------------------------------------------------------------------------------------------
+
+How to create and configure the value of site custom field in Liferay?
+=>
+*Log in to your Liferay Portal as an administrator and navigate to the administration interface.
+* In the administration interface, locate the Control Panel. 
+*Within the Control Panel, find the "Custom Fields" section.
+*Select the resources for which you are interested to make a custom field for example :- page , role ,
+site , user , etc .. 
+*after this .. click on + button and  choose which type of custom field do u want , for example :- text area , input field , dropdown , checkbox , radio , geolocation , date , toggle . 
+
+
+---------------------------------------------------------------------------------------------------
+
+What are different tables used to save the data of custom fields in Liferay?
+=>Expandotable , expandocolumn , expandorow and expandovalue 
+
+----------------------------------------------------------------------------------------------------
+
+What are different important tables in Liferay? Write the tables name and their use.
+=> 1)assententry - entry of all the asset in the liferay project with their basic information stored in this table and
+		 detailed informations are stored in different tables .
+2)layout - entry of every page details 
+3)ddmstructure - information of different page structure
+  ddmtemplate - information of different page templates 
+  dlfileentry - document media is stored here 
+4)comapany - virtual instances stored
+5)group - sites are stored in this
+6)resourceaction and resourcepermission - used to handle resource permission and actions .
+7)backgroundtask - keep tracks of all the task that run in background 
+8)journalarticle - entry of all the content in the liferay is present here
+9)journalfolder -  entry of folder 
+
+----------------------------------------------------------------------------------------------
+What is groupId and companyId in Liferay and what is the use
+=> groupId - is created site Id 
+   companyId - is virtual instance Id 
+This is used for mapping all the assets with their respective virtual instance and site .
+
+----------------------------------------------------------------------------------------------
+
+Which tables are used to handle permission and different actions of resources in Liferay?
+=> resourceaction and resourcepermission 
+ 
+
+ 

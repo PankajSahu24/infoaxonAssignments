@@ -1,0 +1,97 @@
+1)method to add to integer numbers
+2)method to prnt day of a number 
+3)method to print table of given number
+4)armstrong or not   
+5)method to create a map for different LOBs (Insurance)
+
+******************************************************************************
+
+1) long addTwoNumbers(int num1 , int num2){
+long sum = 0;
+sum = num1 + num2;
+return sum;
+}
+  
+
+
+----------------------------------------------
+
+2) 
+
+String dayOfWeek(int date) {
+
+String daysInWeek[] = { "",monday , tuesday , wednesday , thursday , friday , saturday , sunday};
+
+if(date>0 && date<8)
+return daysInWeek[date];
+else 
+return "";
+}
+
+
+-------------------------------------------------
+
+3)
+
+List tableOfNumber(int number){
+
+List<Integer> table = new ArrayList<>(); 
+table.add(0);
+
+for(int index=1;index<=10;index++){
+int temp = 0;
+temp = number*index;
+table.add(temp);
+
+}
+ 
+return table; 
+
+  
+}
+ 
+-------------------------------------------------
+
+4) 
+
+boolean isArmstrong(int number){
+int newNumber = 0 ;
+
+while(number!=0)
+{
+newNumber = newNumber + Math.pow((number%10),3) ;
+number = number/10 ;
+}
+
+boolean result = false;
+result = (number == newNumber);
+return result;
+}
+
+------------------------------------------------------
+
+5)
+
+Map getLob(){
+
+Map<Integer,String> lobMap = new HashMap<>();
+lobMap.put(1,"Health Insurance");
+lobMap.put(2,"Life Insurance");
+lobMap.put(3,"Car Insurance");
+lobMap.put(4,"MediClaim");
+lobMap.put(5,"Muttual Fund");
+lobMap.put(6,"Retirement Plans");
+
+return lobMap;
+}
+
+psvm( String[] args){
+
+HashMap<Integer,String> lobs = getLob();
+
+for(Map.Entry<Integer,String> lob : lobs.entrySet()){
+sysout(lob.getKey() + " " + lob.getValue());
+}
+
+}
+
