@@ -1,0 +1,134 @@
+1)Write all the important command of gogo shell to manage the bundle in osgi.
+=>
+lb
+This command lists all installed bundles along with their bundle IDs and states (e.g., active, resolved, installed, etc.).
+
+start <bundle-id>
+This command starts the bundle with the specified bundle ID.
+
+stop <bundle-id>
+This command stops the bundle with the specified bundle ID.
+
+install <bundle-location>
+This command installs a bundle from the specified location. The location can be a file path or a URL.
+
+uninstall <bundle-id>
+This command uninstalls the bundle with the specified bundle ID.
+
+update <bundle-id>
+This command updates the bundle with the specified bundle ID.
+
+refresh
+This command refreshes all installed bundles, resolving any unsatisfied dependencies.
+
+resolve <bundle-id>
+This command attempts to resolve the bundle with the specified bundle ID, resolving any unsatisfied dependencies.
+
+diag <bundle-id>
+This command displays diagnostic information for the bundle with the specified bundle ID.
+
+--------------------------------------------------------------------------------------------------------------
+
+2)What is osgi lifecycle?
+=>OSGI Lifecycle includes the following states :-
+1)Installed :- When a bundle is first installed into the OSGi container, it enters the Installed state. In this state, the bundle's classes and resources are loaded into the framework, but the bundle is not yet active.
+2)Resolved :-  After installation, the framework tries to resolve the bundle's dependencies, ensuring that all required packages and services are available. If the resolution is successful, the bundle moves to the Resolved state. If the resolution fails, the bundle remains in the Installed state, and it cannot be started until its dependencies are resolved.
+3)Starting :- When a bundle is started, it enters the Starting state. 
+4)Active:-Once a bundle's BundleActivator (if present) successfully starts the bundle's execution, the bundle moves to the Active state. 
+5)Stopped :- When a bundle is requested to stop it enters the Stopping state.  
+6)Uninstalled :- When a bundle is uninstalled from the OSGi container, it enters the Uninstalled state.
+
+The typical lifecycle flow of a bundle is as follows:-
+Installed -> Resolved -> Starting -> Active
+
+----------------------------------------------------------------------------------------------------------------
+3)What is liferay portlet lifecycle?
+=>1. init()  
+This is the first method which will be triggered when we deploy the portlet in portlet container such as tomcat, jboss or any portlet container. This method will be called only during the deployment of the portlet.
+
+2. render()
+Once you deploy the portlet and add the portlet to your page render() method will be called, this method will process the configured jsp and returns the html content to the portlet.
+
+3. processAction()
+processAction method will be called when we use Action URL in our portlet, usually it is used for form submitting CRUD actions.
+
+4. processEvent()
+processEvent method is part of the JSR 286 portlet specification standards, this method is aimed to execute when an event is raised by another portlet via Inter Portlet Communication (IPC) mechanism.
+
+5. serveResource()
+serveResource method is also part of the JSR 286 portlet specification standards, it will be executed and used for AJAX request handling, we can call this method by creating a Liferay resource URL
+
+6. destroy()
+This is the last method which will be executed when the portlet is undeployed from the portlet container, when this method gets executed we can conclude that the portlet is removed from the portlet container
+
+---------------------------------------------------------------------------------------------------------------------
+4)Create a custom exception in java.
+=> 
+
+public class PolicyNotFoundException extends Exception {
+	
+	public PolicyNotFoundException(String msg) {
+		super(msg);
+	}
+
+}
+
+
+public class PolicyDoesNotExist extends Exception {
+	
+	public PolicyDoesNotExist(String msg) {
+		super(msg);
+	}
+
+}
+
+-------------------------------------------------------------------------------
+5)Create a map and retrieve the elements from the map.
+  Create a set to save the details in sorted order.
+=> 
+	    Map <Integer,Policy> mapOfPolicies = new HashMap<>();
+	    
+		//creating map of policy 
+	    mapOfPolicies.put(policy1.getPolicyId(), policy1);
+	    mapOfPolicies.put(policy2.getPolicyId(), policy2);
+	    mapOfPolicies.put(policy3.getPolicyId(), policy3);
+	    
+		//creating set of policy that implements comparable 
+	    SortedSet<Policy> set = new TreeSet<>();   
+	    
+		//iterating map of policy and inserting it into sorted set one by one 
+	   for(Policy policy : mapOfPolicies.values()) {
+		   set.add(policy);
+		   
+	   }
+	   
+	   System.out.println(set);
+	   
+	    ------------------------------------------
+
+	//implementation of comparable
+
+		@Override
+	public int compareTo(Policy o) {
+		if(1<(this.policyName.compareTo(o.getPolicyName())))
+		return 1;
+		else if(1>(this.policyName.compareTo(o.getPolicyName())))
+			return -1;
+		else 
+			return 0;
+	}
+	 
+----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+

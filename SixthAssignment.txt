@@ -1,0 +1,173 @@
+1)Create a List and access all the elements of that list using iterator and foreach loop.
+
+=>
+		//creating list of policy
+		List <Policy> listOfPolicy = new ArrayList<>(); 
+		
+	//creating policies 
+	    Policy policy2 = new Policy(2, 102, "BikeInsurance", "26-06-2023", "25-06-2023", "26-06-2023", true, 25000, 100000, 125000, 8, 3, true);
+	    Policy policy1 = new Policy(1, 101, "CarInsurance", "26-06-2023", "25-06-2023", "26-06-2023", true, 25000, 100000, 125000, 8, 3, true);
+	    Policy policy3 = new Policy(3, 103, "BusInsurance", "26-06-2023", "25-06-2023", "26-06-2023", true, 25000, 100000, 125000, 8, 3, true);
+	
+		//populating list of policy 
+	    listOfPolicy.add(policy1);
+	    listOfPolicy.add(policy2);
+	    listOfPolicy.add(policy3);
+	    
+	    Iterator<Policy> policyIterator = listOfPolicy.iterator();
+	    //iterating using iterator 
+	    while(policyIterator.hasNext()) {
+	    	System.out.println(policyIterator.next());
+	    }
+	    //iterating using for-each
+	    for(Policy policy : listOfPolicy) {
+	    	System.out.println(policy.policyName);
+	    }
+
+-----------------------------------------------------------------------------------------------------
+
+2)Create a Set and access all the elements of the set using iterator and foreach loop.
+=>
+
+	public List getListOfAllPolicyNames() {
+		
+		 
+	    //creating set of Policies
+	Set <Policy> setOfPolicy =  new HashSet<>();
+
+		
+	    setOfPolicy.add(policy1);
+	    setOfPolicy.add(policy2);
+	    setOfPolicy.add(policy3);
+	    
+	    Iterator<Policy> policySetIterator = setOfPolicy.iterator();
+	    List <String> listOfAllPolicyNames = new ArrayList<>();
+
+		//iterating using iterator
+	    while(policySetIterator.hasNext()) {
+	    	listOfAllPolicyNames.add(policySetIterator.next().policyName);
+	    }
+
+	    //iterating using for-each
+	    for(Policy policy : setOfPolicy) {
+	    	System.out.println(policy.policyName);
+	    }
+		
+		return listOfAllPolicyNames;
+		
+	}
+
+---------------------------------------------------------------------------------------------------
+3)Create a user defined exception and use it in the class.
+Write a method to handle the exception using try catch finally with all the scenarios that discussed.
+
+=>
+
+public class PolicyNotFoundException extends Exception {
+	
+	public PolicyNotFoundException(String msg) {
+		super(msg);
+	}
+
+}
+
+
+public class PolicyDoesNotExist extends Exception {
+	
+	public PolicyDoesNotExist(String msg) {
+		super(msg);
+	}
+
+}
+
+ *************************************************************************
+//use of throw throws 
+
+	public static Policy getPolicyDetailsByName(String policyName) throws PolicyNotFoundException , PolicyDoesNotExist {
+		
+		//creating list of policy
+				List <Policy> listOfPolicy = new ArrayList<>(); 
+				
+			//creating policies 
+			    Policy policy2 = new Policy(2, 102, "BikeInsurance", "26-06-2023", "25-06-2023", "26-06-2023", true, 25000, 100000, 125000, 8, 3, true);
+			    Policy policy1 = new Policy(1, 101, "CarInsurance", "26-06-2023", "25-06-2023", "26-06-2023", true, 25000, 100000, 125000, 8, 3, true);
+			    Policy policy3 = new Policy(3, 103, "BusInsurance", "26-06-2023", "25-06-2023", "26-06-2023", true, 25000, 100000, 125000, 8, 3, true);
+			
+				//populating list of policy 
+			    listOfPolicy.add(policy1);
+			    listOfPolicy.add(policy2);
+			    listOfPolicy.add(policy3);
+			    
+			    if(policyName == "BusInsurance") 
+		    		throw new PolicyNotFoundException("this policy doesnt exist anymore");
+			    
+			    Iterator<Policy> policyIterator = listOfPolicy.iterator();
+			    //iterating using iterator 
+			    while(policyIterator.hasNext()) {
+			    	Policy policy = policyIterator.next();
+			    	String policyNameFromList = policy.getPolicyName();
+			    		
+			    		if(policyNameFromList.equals(policyName)) {
+				    		return policy;
+				    	}
+			    		
+			    		
+			    }
+		throw new PolicyDoesNotExist("Does not exist");
+		
+		
+	}
+********************************************************************************************
+
+ Scanner sc = new Scanner(System.in);
+	    
+	    System.out.println("Enter policy Name");
+	    
+	    String policyName = sc.nextLine();
+	    
+//use of try catch finally
+	    try {
+	    	
+	    	Policy policy = getPolicyDetailsByName(policyName);
+			System.out.println(policy);
+		} catch (PolicyNotFoundException e) {
+			// TODO: handle exception
+			System.out.println(e);
+			
+		}catch (PolicyDoesNotExist e) {
+			System.out.println(e);
+	    }
+	    catch (Exception e) {
+	    	System.out.println(e);
+	    }
+	    finally {
+	    sc.close();
+	    
+	    }
+*************************************************************************************************
+
+		//try with resources
+	    
+	    try ( Scanner sc = new Scanner(System.in)){
+		    
+		    System.out.println("Enter policy Name");
+	    	String policyName = sc.nextLine();
+	    	Policy policy = getPolicyDetailsByName(policyName);
+		System.out.println(policy);
+			
+		} catch (PolicyNotFoundException e) {
+			// TODO: handle exception
+			System.out.println(e);
+			
+		}catch (PolicyDoesNotExist e) {
+			System.out.println(e);
+	    }
+	    catch (Exception e) {
+	    	System.out.println(e);
+	    }
+		
+
+
+------------------------------------------------------------------------------------------------------------
+
+	
